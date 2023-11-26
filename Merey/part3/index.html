@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Handling and Two-Way Binding</title>
+  <script src="https://unpkg.com/vue@3.2.31"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="username" placeholder="Enter your name">
+    <button @click="resetUsername">Reset</button>
+    <p class="greeting">Hello, {{ username }}!</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

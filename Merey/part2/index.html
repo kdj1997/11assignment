@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List Rendering</title>
+  <script src="https://unpkg.com/vue@3.2.31"></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in items" :key="index" @click="removeItem(index)" class="item">{{ item }}</li>
+    </ul>
+    <button @click="addItem">Add Item</button>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          items: ['Apple', 'Banana', 'Orange']
+        };
+      },
+      methods: {
+        addItem() {
+          const newItem = prompt('Enter a new item:');
+          if (newItem) {
+            this.items.push(newItem);
+          }
+        },
+        removeItem(index) {
+          this.items.splice(index, 1);
+        }
+      }
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task List</title>
+  <script src="https://unpkg.com/vue@3.2.31"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <div>
+        <h2>Task List</h2>
+        <div v-for="(task, index) in tasks" :key="index" class="task" :class="{ completed: task.completed }">
+          <span>{{ task.title }}</span>
+          <button class="button" @click="toggleCompletion(task)">Mark {{ task.completed ? 'Incomplete' : 'Complete' }}</button>
+        </div>
+        <input type="text" v-model="newTask" class="add-task" placeholder="Add a new task">
+        <button class="button" @click="addTask">Add Task</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
